@@ -37,6 +37,8 @@ public class UIManager : MonoBehaviour
   [Header("Popus UI")]
   [SerializeField]
   private GameObject MainPopup_Object;
+  [SerializeField]
+  private GameObject WinMainPopup_Object;
 
   [Header("Paytable Popup")]
   [SerializeField]
@@ -201,7 +203,7 @@ public class UIManager : MonoBehaviour
       WinPopupTextTween.Kill();
       WinPopupTextTween = null;
     }
-    ClosePopup(megawin);
+    CloseWinPopup(megawin);
     slotBehaviour.CheckPopups = false;
   }
 
@@ -292,7 +294,7 @@ public class UIManager : MonoBehaviour
         break;
     }
     if (megawin) megawin.SetActive(true);
-    if (MainPopup_Object) MainPopup_Object.SetActive(true);
+    if (WinMainPopup_Object) WinMainPopup_Object.SetActive(true);
 
     WinPopupTextTween = DOTween.To(() => initAmount, (val) => initAmount = val, amount, 5f).OnUpdate(() =>
     {
@@ -301,7 +303,7 @@ public class UIManager : MonoBehaviour
 
     ClosePopupTween = DOVirtual.DelayedCall(6f, () =>
     {
-      if (MainPopup_Object) MainPopup_Object.SetActive(false);
+      if (WinMainPopup_Object) WinMainPopup_Object.SetActive(false);
       if (megawin) megawin.SetActive(false);
       if (megawin_text) megawin_text.text = "0";
       slotBehaviour.CheckPopups = false;
@@ -363,6 +365,15 @@ public class UIManager : MonoBehaviour
     if (!DisconnectPopup_Object.activeSelf)
     {
       if (MainPopup_Object) MainPopup_Object.SetActive(false);
+    }
+  }
+  private void CloseWinPopup(GameObject Popup)
+  {
+    if (audioController) audioController.PlayButtonAudio();
+    if (Popup) Popup.SetActive(false);
+    if (!DisconnectPopup_Object.activeSelf)
+    {
+      if (WinMainPopup_Object) WinMainPopup_Object.SetActive(false);
     }
   }
 

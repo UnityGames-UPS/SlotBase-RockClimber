@@ -59,6 +59,7 @@ public class GambleController : MonoBehaviour
     });
     ToggleButton(GambleCollectButton, false);
     ToggleButton(GambleDoubleButton, false);
+    ToggleGambleButton(false);
   }
 
   void StartGamblegame(bool GambleInit = false)

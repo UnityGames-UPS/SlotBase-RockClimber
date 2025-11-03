@@ -5511,7 +5511,7 @@ MonoBehaviour:
   uiManager: {fileID: 377874625}
   gambleController: {fileID: 2118856088}
   bonusController: {fileID: 1923439557}
-  testToken: 627cd27f3ca645e4992155c80b322328
+  testToken: 2cc0832366a94a579de5f8defb2f039f
   JSManager: {fileID: 99197459}
 --- !u!1 &501915244
 GameObject:
@@ -16767,7 +16767,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 491.00003, y: 115}
+  m_AnchoredPosition: {x: 532.5, y: 115}
   m_SizeDelta: {x: 289, y: 197}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1533432923
@@ -16961,8 +16961,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 78}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 100, y: 47}
+  m_SizeDelta: {x: 84.47, y: 81.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1542813826
 MonoBehaviour:

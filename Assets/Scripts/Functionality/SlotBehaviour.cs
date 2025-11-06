@@ -319,6 +319,7 @@ public class SlotBehaviour : MonoBehaviour
   private IEnumerator TweenRoutine()
   {
     currentBet = SocketManager.initialData.gameData.bets[BetCounter];
+    currentBalance = SocketManager.playerdata.balance;
 
     if (SocketManager.playerdata.balance < currentTotalBet && !IsFreeSpin)
     {

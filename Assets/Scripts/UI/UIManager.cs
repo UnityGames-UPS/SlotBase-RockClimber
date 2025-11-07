@@ -354,6 +354,21 @@ public class UIManager : MonoBehaviour
 
   private void OpenPopup(GameObject Popup)
   {
+    if (Popup == LBPopup_Object)
+    {
+      if (PaytablePopup_Object.activeSelf) PaytablePopup_Object.SetActive(false);
+      if (SettingsPopup_Object.activeSelf) SettingsPopup_Object.SetActive(false);
+    }
+    if (Popup == DisconnectPopup_Object)
+    {
+      if (PaytablePopup_Object.activeSelf) PaytablePopup_Object.SetActive(false);
+      if (SettingsPopup_Object.activeSelf) SettingsPopup_Object.SetActive(false);
+    }
+    if (Popup == ReconnectionPopup_Object)
+    {
+      if (PaytablePopup_Object.activeSelf) PaytablePopup_Object.SetActive(false);
+      if (SettingsPopup_Object.activeSelf) SettingsPopup_Object.SetActive(false);
+    }
     if (Popup) Popup.SetActive(true);
     if (MainPopup_Object) MainPopup_Object.SetActive(true);
   }

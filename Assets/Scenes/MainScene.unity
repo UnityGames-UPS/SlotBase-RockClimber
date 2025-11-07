@@ -5511,7 +5511,7 @@ MonoBehaviour:
   uiManager: {fileID: 377874625}
   gambleController: {fileID: 2118856088}
   bonusController: {fileID: 1923439557}
-  testToken: d0960e532cfc43e4a4f49ba6020e1f08
+  testToken: 57851dee0e6249a0babed63f1782b8a8
   JSManager: {fileID: 99197459}
 --- !u!1 &501915244
 GameObject:

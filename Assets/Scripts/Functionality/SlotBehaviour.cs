@@ -255,6 +255,13 @@ public class SlotBehaviour : MonoBehaviour
     }
   }
 
+  internal void UpdateBalanceDisplay(double newBalance)
+  {
+    currentBalance = newBalance;
+    if (Balance_text) Balance_text.text = newBalance.ToString("F3");
+    CompareBalance();
+  }
+
   private void MaxBet()
   {
     if (audioController) audioController.PlayButtonAudio();
@@ -288,7 +295,7 @@ public class SlotBehaviour : MonoBehaviour
 
   private void OnApplicationFocus(bool focus)
   {
-    audioController.CheckFocusFunction(focus, IsSpinning);
+    audioController.SetMuteAll(!focus);
   }
 
   private void StartSlots(bool autoSpin = false)

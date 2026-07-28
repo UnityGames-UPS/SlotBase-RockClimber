@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioController : MonoBehaviour
@@ -18,26 +19,36 @@ public class AudioController : MonoBehaviour
     audioSpin_button.clip = clips[clips.Length - 2];
   }
 
-  internal void CheckFocusFunction(bool focus, bool IsSpinning)
+  private bool isForceMuted = false;
+  private readonly Dictionary<AudioSource, bool> preFocusMuteState = new();
+
+  private IEnumerable<AudioSource> AllSources()
   {
-    if (!focus)
+    yield return bg_adudio;
+    yield return audioPlayer_wl;
+    yield return audioPlayer_button;
+    yield return audioSpin_button;
+    yield return bg_audioBonus;
+    yield return audioPlayer_Bonus;
+  }
+
+  internal void SetMuteAll(bool forceMute)
+  {
+    if (forceMute == isForceMuted) return;
+    isForceMuted = forceMute;
+
+    foreach (var source in AllSources())
     {
-      bg_adudio.Pause();
-      audioPlayer_wl.Pause();
-      audioPlayer_button.Pause();
-    }
-    else
-    {
-      if (!bg_adudio.mute) bg_adudio.UnPause();
-      if (IsSpinning)
+      if (source == null) continue;
+      if (forceMute)
       {
-        if (!audioPlayer_wl.mute) audioPlayer_wl.UnPause();
+        preFocusMuteState[source] = source.mute;
+        source.mute = true;
       }
       else
       {
-        StopWLAaudio();
+        source.mute = preFocusMuteState.TryGetValue(source, out bool prevMuted) ? prevMuted : source.mute;
       }
-      if (!audioPlayer_button.mute) audioPlayer_button.UnPause();
     }
   }
 
